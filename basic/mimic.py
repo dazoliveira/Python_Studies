@@ -55,18 +55,23 @@ def mimic_dict(filename):
   prev = ''
   for word in words:
     if not prev in mimic_dict:
-      mimic_dict[prev] = ['keu']
+      mimic_dict[prev] = [word]
     else:
       mimic_dict[prev].append(word)
     prev = word
-  print(mimic_dict)
-  return words
+  return mimic_dict
 
 
 def print_mimic(mimic_dict, word):
   """Given mimic dict and start word, prints 200 random words."""
   # +++your code here+++
-  return
+  # LAB(begin solution)
+  for unused_i in range(200):
+    print(word, end = ' ')
+    nexts = mimic_dict.get(word)          # Returns None if not found
+    if not nexts:
+      nexts = mimic_dict['']  # Fallback to '' if not found
+    word = random.choice(nexts)
 
 
 # Provided main(), calls mimic_dict() and mimic()

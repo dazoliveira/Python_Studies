@@ -47,6 +47,24 @@ import sys
 # Then print_words() and print_top() can just call the utility function.
 
 ###
+def print_words(file):
+    f = open(file, 'r')
+    text = f.read()
+    text_lower = text.lower()
+    words = text_lower.split()
+    dic_words = {}
+    for word in words:
+        dic_words[word] = words.count(word)
+    print(text_lower, '\n')
+    print(dic_words)
+
+
+
+def print_top(file):
+    f = open(file, 'r')
+    text = f.read()
+    print(text)
+    return
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
